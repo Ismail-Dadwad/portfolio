@@ -1,65 +1,86 @@
-import Image from "next/image";
+"use client";
+
+import Hero from "../components/Hero";
+import CaseStudyCard from "../components/CaseStudyCard";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Hero />
+      
+      <section id="work" className="pt-16 md:pt-24">
+        {/* Adjusted from text-3xl to text-2xl on mobile, allowed wrapping */}
+        <h2 className="text-2xl md:text-3xl font-jakarta font-bold text-white mb-8 md:mb-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <span>Pace Travels & Quote Desks Projects</span>
+          <div className="h-[1px] w-full sm:flex-grow bg-gradient-to-r from-white/20 to-transparent"></div>
+        </h2>
+
+        {/* 1. Quote Desks SaaS (Before & After Redesign) */}
+        <CaseStudyCard 
+          title="Quote Desks - SaaS Software"
+          subtitle="Pace Tourism | UX/UI Transformation & CRM Development"
+          role="Frontend Developer & UI/UX Designer"
+          metric="Redesigned and engineered the core CRM dashboard to solve navigation friction. The transformation turned a static, low-density reporting page into a live, actionable command center."
+          ui="Evolved the visual identity into a cohesive design system using Figma Design Tokens and Variables for scalable theming. Structured the entire interface using strict Auto Layout rules to guarantee fluid scaling across all viewports."
+          ux="The legacy dashboard suffered from wasted whitespace and required users to click away for basic actions. Centralized operations by introducing a persistent global search, a live 'Recent Activities' feed, and organizing complex tables into quick-filter tabs."
+          code="Utilized Figma Dev Mode to ensure a 1:1 pixel-perfect translation from design to code. Architected a highly scalable web application with a fluid, responsive design, leveraging custom reusable UI components in Vanilla JavaScript (ES6) and SCSS to seamlessly sync complex layouts with backend REST APIs."
+          stack={["HTML5", "SCSS", "Vanilla JS", "Figma (Auto Layout/Dev Mode)", "REST API"]}
+          image={["/old-dashboard-quotedesks.jpg", "/new-dashboard-quotedesks.jpg"]} 
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        {/* 2. Pace Travels Portal */}
+        <CaseStudyCard 
+          title="Pace Travels"
+          subtitle="Pace Travels | Comprehensive Travel Booking Engine"
+          role="Frontend Developer & UI/UX Designer"
+          metric="Delivered a fast, responsive, and user-friendly B2C and B2B booking experience for flights, buses, hotels, and cabs."
+          ui="Component-driven design system prioritizing high legibility across complex search matrices. Leveraged Figma Variables for consistent spacing and typography scales across multi-service booking cards."
+          ux="Improved user navigation flows and booking checkout funnels by designing persistent, sticky fare summaries to prevent hidden fee anxiety during final checkout steps."
+          code="Modernized the platform architecture using Angular to deliver a highly scalable and fully responsive booking engine. Optimized the frontend structure by creating a rich library of reusable components, guaranteeing high performance across mobile, tablet, and desktop displays."
+          stack={["Angular", "SCSS", "RxJS", "Figma Tokens", "TypeScript"]}
+          image="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop"
+        />
+
+        {/* 2. Pace Travels Admin */}
+        <CaseStudyCard 
+          title="Pace Travels Admin"
+          subtitle="Pace Travels | Comprehensive Travel Booking Management"
+          role="Frontend Developer & UI/UX Designer"
+          metric="Delivered a fast, responsive, and user-friendly B2C and B2B booking experience for flights, buses, hotels, and cabs."
+          ui="Component-driven design system prioritizing high legibility across complex search matrices. Leveraged Figma Variables for consistent spacing and typography scales across multi-service booking cards."
+          ux="Improved user navigation flows and booking checkout funnels by designing persistent, sticky fare summaries to prevent hidden fee anxiety during final checkout steps."
+          code="Modernized the platform architecture using Angular to deliver a highly scalable and fully responsive booking engine. Optimized the frontend structure by creating a rich library of reusable components, guaranteeing high performance across mobile, tablet, and desktop displays."
+          stack={["Angular", "SCSS", "RxJS", "Figma Tokens", "TypeScript"]}
+          image="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop"
+        />
+
+        {/* 3. Dubai Enquiry Management CRM */}
+        <CaseStudyCard 
+          title="Pace Tourism CRM Dubai"
+          subtitle="Pace Tourism | High-Ticket In-House CRM"
+          role="React Developer & UI/UX Designer"
+          metric="Developed a dedicated system to generate quotations, itineraries, and manage automated follow-ups for the Dubai in-house team."
+          ui="Premium off-white canvas with 'Signature Gold' accents tailored specifically for luxury destination logistics. Designed complex split-pane dashboard layouts using nested Figma Auto Layout constraints."
+          ux="Created the 'Dubai Trip Builder Hub'—a modular library where internal agents can select pre-built day packages to instantly assemble exportable customer itineraries, rather than typing manual schedules."
+          code="Engineered a scalable web application in React, ensuring a flawlessly responsive design across all operational environments. Constructed the interface using modular, reusable components and integrated a client-side mathematical parser to update margins instantly without UI lag."
+          stack={["React", "Bootstrap 5", "SCSS", "Figma", "REST API"]}
+          image="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"
+        />
+
+        {/* 4. Pace Tourism Internal CRM */}
+        <CaseStudyCard 
+          title="Pace Tourism CRM Dubai"
+          subtitle="Pace Tourism | Global Destination Operations"
+          role="React Developer & UI/UX Designer"
+          metric="Streamlined internal query generation, lead management, and complex travel coordination for Dubai, Thailand, and Vietnam."
+          ui="Dynamic, color-coded grid system built to handle ultra-dense multi-city tracking data at a glance, managed globally via Figma color variables to ensure accessible contrast ratios."
+          ux="Developed a visual 'Chronological Conflict Detector' that actively warns internal operators if they attempt to book an excursion that overlaps with a domestic flight checkout window."
+          code="Leveraged React Context paired with localized state reducers to build a robust, scalable web app. Delivered a polished, responsive design driven by an architecture of reusable components, managing deep multi-tier transport modules smoothly without prop-drilling."
+          stack={["React", "Tailwind CSS", "Radix UI", "Figma", "REST API"]}
+          image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+        />
+        
+      </section>
+    </>
   );
 }
