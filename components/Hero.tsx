@@ -30,7 +30,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        Hi, I'm <span className="text-white">[YOUR NAME HERE]</span>.<br className="hidden sm:block" />
+        Hi, I'm <span className="text-white">Ismail Dadwad</span>.<br className="hidden sm:block" />
         Bridging the gap between <br className="hidden sm:block" />
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00B4D8] to-[#7C3AED]">
           pixel-perfect design
