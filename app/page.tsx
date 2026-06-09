@@ -24,7 +24,7 @@ export default function Home() {
           ui="Evolved the visual identity into a cohesive design system using Figma Design Tokens and Variables for scalable theming. Structured the entire interface using strict Auto Layout rules to guarantee fluid scaling across all viewports."
           ux="The legacy dashboard suffered from wasted whitespace and required users to click away for basic actions. Centralized operations by introducing a persistent global search, a live 'Recent Activities' feed, and organizing complex tables into quick-filter tabs."
           code="Utilized Figma Dev Mode to ensure a 1:1 pixel-perfect translation from design to code. Architected a highly scalable web application with a fluid, responsive design, leveraging custom reusable UI components in Vanilla JavaScript (ES6) and SCSS to seamlessly sync complex layouts with backend REST APIs."
-          stack={["HTML5", "SCSS", "Vanilla JS", "Figma (Auto Layout/Dev Mode)", "REST API"]}
+          stack={["HTML5", "CSS", "Vanilla JS", "Figma (Auto Layout/Dev Mode)", "REST API"]}
           image={["/old-dashboard-quotedesks.jpg", "/new-dashboard-quotedesks.jpg"]} 
         />
 
@@ -37,8 +37,8 @@ export default function Home() {
           ui="Component-driven design system prioritizing high legibility across complex search matrices. Leveraged Figma Variables for consistent spacing and typography scales across multi-service booking cards."
           ux="Improved user navigation flows and booking checkout funnels by designing persistent, sticky fare summaries to prevent hidden fee anxiety during final checkout steps."
           code="Modernized the platform architecture using Angular to deliver a highly scalable and fully responsive booking engine. Optimized the frontend structure by creating a rich library of reusable components, guaranteeing high performance across mobile, tablet, and desktop displays."
-          stack={["Angular", "SCSS", "RxJS", "Figma Tokens", "TypeScript"]}
-          image="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop"
+          stack={["HTML5", "CSS", "JavaScript", "Figma Tokens", "Boostatrap"]}
+          image={["/old-flight-home.png", "/flight-home.png"]}
         />
 
         {/* 2. Pace Travels Admin */}
@@ -50,7 +50,7 @@ export default function Home() {
           ui="Component-driven design system prioritizing high legibility across complex search matrices. Leveraged Figma Variables for consistent spacing and typography scales across multi-service booking cards."
           ux="Improved user navigation flows and booking checkout funnels by designing persistent, sticky fare summaries to prevent hidden fee anxiety during final checkout steps."
           code="Modernized the platform architecture using Angular to deliver a highly scalable and fully responsive booking engine. Optimized the frontend structure by creating a rich library of reusable components, guaranteeing high performance across mobile, tablet, and desktop displays."
-          stack={["Angular", "SCSS", "RxJS", "Figma Tokens", "TypeScript"]}
+          stack={["HTML5", "CSS", "JavaScript", "Figma Tokens", "Boostatrap", "REST API"]}
           image="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop"
         />
 

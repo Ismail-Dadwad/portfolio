@@ -9,7 +9,16 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakart
 export const metadata: Metadata = {
   title: "Portfolio | UI/UX & Frontend Developer",
   description: "Crafting seamless user experiences from pixel-perfect design to clean, scalable code.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon-v1.png",
+        type: "image/png",
+      },
+    ],
+  },
 };
+
 
 // 🔴 ADDED: This forces mobile browsers to strictly obey the screen width
 export const viewport: Viewport = {
