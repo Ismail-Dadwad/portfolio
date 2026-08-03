@@ -5,10 +5,10 @@ import { ArrowRight, Code2, PenTool, LayoutTemplate, Layers } from "lucide-react
 
 export default function Hero() {
   const roles = [
-    { name: "Frontend Developer", icon: <Code2 size={16} /> },
     { name: "UI/UX Designer", icon: <PenTool size={16} /> },
-    { name: "React Developer", icon: <Layers size={16} /> },
-    { name: "UI Developer", icon: <LayoutTemplate size={16} /> },
+    { name: "Frontend Developer", icon: <Code2 size={16} /> },
+    // { name: "React Developer", icon: <Layers size={16} /> },
+    // { name: "UI Developer", icon: <LayoutTemplate size={16} /> },
   ];
 
   return (

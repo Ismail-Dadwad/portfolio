@@ -19,12 +19,12 @@ export default function Home() {
         <CaseStudyCard 
           title="Quote Desks - SaaS Software"
           subtitle="Pace Tourism | UX/UI Transformation & CRM Development"
-          role="Frontend Developer & UI/UX Designer"
+          role="UI/UX Designer"
           metric="Redesigned and engineered the core CRM dashboard to solve navigation friction. The transformation turned a static, low-density reporting page into a live, actionable command center."
           ui="Evolved the visual identity into a cohesive design system using Figma Design Tokens and Variables for scalable theming. Structured the entire interface using strict Auto Layout rules to guarantee fluid scaling across all viewports."
           ux="The legacy dashboard suffered from wasted whitespace and required users to click away for basic actions. Centralized operations by introducing a persistent global search, a live 'Recent Activities' feed, and organizing complex tables into quick-filter tabs."
           code="Utilized Figma Dev Mode to ensure a 1:1 pixel-perfect translation from design to code. Architected a highly scalable web application with a fluid, responsive design, leveraging custom reusable UI components in Vanilla JavaScript (ES6) and SCSS to seamlessly sync complex layouts with backend REST APIs."
-          stack={["HTML5", "CSS", "Vanilla JS", "Figma (Auto Layout/Dev Mode)", "REST API"]}
+          stack={["Figma", "Auto Layout", "Variants", "Accessibility", "Figma Tokens", "Prototype"]}
           image={["/old-dashboard-quotedesks.jpg", "/new-dashboard-quotedesks.jpg"]} 
         />
 
@@ -32,12 +32,12 @@ export default function Home() {
         <CaseStudyCard 
           title="Pace Travels"
           subtitle="Pace Travels | Comprehensive Travel Booking Engine"
-          role="Frontend Developer & UI/UX Designer"
+          role="UI/UX Designer"
           metric="Delivered a fast, responsive, and user-friendly B2C and B2B booking experience for flights, buses, hotels, and cabs."
           ui="Component-driven design system prioritizing high legibility across complex search matrices. Leveraged Figma Variables for consistent spacing and typography scales across multi-service booking cards."
           ux="Improved user navigation flows and booking checkout funnels by designing persistent, sticky fare summaries to prevent hidden fee anxiety during final checkout steps."
           code="Modernized the platform architecture using Angular to deliver a highly scalable and fully responsive booking engine. Optimized the frontend structure by creating a rich library of reusable components, guaranteeing high performance across mobile, tablet, and desktop displays."
-          stack={["HTML5", "CSS", "JavaScript", "Boostatrap", "Figma Tokens", "Auto Layout"]}
+          stack={["Figma", "Auto Layout", "Variants", "Accessibility", "Figma Tokens", "Prototype"]}
           image={["/old-flight-home.png", "/flight-home.png"]}
         />
 
@@ -59,13 +59,13 @@ export default function Home() {
         {/* 3. Pace Travels Admin */}
         <CaseStudyCard 
           title="Pace Travels Admin"
-          subtitle="Pace Travels | Comprehensive Travel Booking Management"
-          role="Frontend Developer & UI/UX Designer"
-          metric="Delivered a fast, responsive, and user-friendly B2C and B2B booking experience for flights, buses, hotels, and cabs."
+          subtitle="Pace Travels | Comprehensive Travel Administration Portal"
+          role="UI/UX Designer & Frontend Developer"
+          metric="Designed and developed a responsive Travel Admin portal that simplified booking management, reduced manual effort, and improved operational efficiency."
           ui="Designed a clean, responsive, and user-friendly Travel Admin interface with a consistent visual hierarchy, intuitive layouts, and reusable components to enhance usability and streamline daily booking operations."
           ux="Focused on simplifying complex travel booking and reservation workflows by identifying usability pain points such as excessive manual steps, difficult navigation, and inefficient task flows. Redesigned the user experience with intuitive navigation, streamlined booking management, and organized information architecture to help travel administrators complete tasks faster, reduce errors, and improve overall operational efficiency."
           code="Structured the Travel Admin application using a scalable, component-based architecture with reusable UI components, modular layouts, and organized workflows to ensure maintainability, consistency, and future scalability."
-          stack={["HTML5", "CSS", "JavaScript", "Figma Tokens", "Boostatrap", "REST API"]}
+          stack={["Figma", "HTML5", "CSS", "JavaScript", "Bootstrap 5", "REST API"]}
           image="/admin.png"
         />
 
