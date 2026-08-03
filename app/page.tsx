@@ -51,7 +51,7 @@ export default function Home() {
           metric="Developed a dedicated system to generate quotations, itineraries, and manage automated follow-ups for the Dubai in-house team."
           ui="Premium off-white canvas with 'Signature Gold' accents tailored specifically for luxury destination logistics. Designed complex split-pane dashboard layouts using nested Figma Auto Layout constraints."
           ux="Created the 'Dubai Trip Builder Hub'—a modular library where internal agents can select pre-built day packages to instantly assemble exportable customer itineraries, rather than typing manual schedules."
-          code="Engineered a scalable web application in React, ensuring a flawlessly responsive design across all operational environments. Constructed the interface using modular, reusable components and integrated a client-side mathematical parser to update margins instantly without UI lag."
+          code="Engineered a scalable web application, ensuring a flawlessly responsive design across all operational environments. Constructed the interface using modular, reusable components and integrated a client-side mathematical parser to update margins instantly without UI lag."
           stack={["HTML5", "CSS", "Bootstrap 5", "Figma", "REST API"]}
           image={["/dubai.png", "/dubai-login.png"]}
         />
@@ -62,9 +62,9 @@ export default function Home() {
           subtitle="Pace Travels | Comprehensive Travel Booking Management"
           role="Frontend Developer & UI/UX Designer"
           metric="Delivered a fast, responsive, and user-friendly B2C and B2B booking experience for flights, buses, hotels, and cabs."
-          ui="Component-driven design system prioritizing high legibility across complex search matrices. Leveraged Figma Variables for consistent spacing and typography scales across multi-service booking cards."
-          ux="Improved user navigation flows and booking checkout funnels by designing persistent, sticky fare summaries to prevent hidden fee anxiety during final checkout steps."
-          code="Modernized the platform architecture using Angular to deliver a highly scalable and fully responsive booking engine. Optimized the frontend structure by creating a rich library of reusable components, guaranteeing high performance across mobile, tablet, and desktop displays."
+          ui="Designed a clean, responsive, and user-friendly Travel Admin interface with a consistent visual hierarchy, intuitive layouts, and reusable components to enhance usability and streamline daily booking operations."
+          ux="Focused on simplifying complex travel booking and reservation workflows by identifying usability pain points such as excessive manual steps, difficult navigation, and inefficient task flows. Redesigned the user experience with intuitive navigation, streamlined booking management, and organized information architecture to help travel administrators complete tasks faster, reduce errors, and improve overall operational efficiency."
+          code="Structured the Travel Admin application using a scalable, component-based architecture with reusable UI components, modular layouts, and organized workflows to ensure maintainability, consistency, and future scalability."
           stack={["HTML5", "CSS", "JavaScript", "Figma Tokens", "Boostatrap", "REST API"]}
           image="/admin.png"
         />
