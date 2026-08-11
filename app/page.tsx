@@ -36,7 +36,7 @@ export default function Home() {
           metric="Delivered a fast, responsive, and user-friendly B2C and B2B booking experience for flights, buses, hotels, and cabs."
           ui="Component-driven design system prioritizing high legibility across complex search matrices. Leveraged Figma Variables for consistent spacing and typography scales across multi-service booking cards."
           ux="Improved user navigation flows and booking checkout funnels by designing persistent, sticky fare summaries to prevent hidden fee anxiety during final checkout steps."
-          code="Modernized the platform architecture using Angular to deliver a highly scalable and fully responsive booking engine. Optimized the frontend structure by creating a rich library of reusable components, guaranteeing high performance across mobile, tablet, and desktop displays."
+          code="Modernized the platform architecture to deliver a highly scalable and fully responsive booking engine. Optimized the frontend structure by creating a rich library of reusable components, ensuring high performance across mobile, tablet, and desktop devices."
           stack={["Figma", "Auto Layout", "Variants", "Accessibility", "Figma Tokens", "Prototype"]}
           image={["/old-flight-home.png", "/flight-home.png"]}
         />
@@ -57,7 +57,7 @@ export default function Home() {
         />
 
         {/* 3. Pace Travels Admin */}
-        <CaseStudyCard 
+        {/* <CaseStudyCard 
           title="Pace Travels Admin"
           subtitle="Pace Travels | Comprehensive Travel Administration Portal"
           role="UI/UX Designer & Frontend Developer"
@@ -67,7 +67,7 @@ export default function Home() {
           code="Structured the Travel Admin application using a scalable, component-based architecture with reusable UI components, modular layouts, and organized workflows to ensure maintainability, consistency, and future scalability."
           stack={["Figma", "HTML5", "CSS", "JavaScript", "Bootstrap 5", "REST API"]}
           image="/admin.png"
-        />
+        /> */}
 
         {/* 4. Pace Tourism Internal CRM */}
         {/* <CaseStudyCard 
