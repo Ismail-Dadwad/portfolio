@@ -9,7 +9,9 @@ export default function Nav() {
           href="#top"
           className="flex items-center gap-2.5 font-display text-base font-bold tracking-[-0.02em]"
         >
-          <span className="block h-[22px] w-[22px] rounded-[7px] bg-brandGrad" />
+          <span className="flex h-[26px] w-[26px] items-center justify-center rounded-[7px] bg-brandGrad font-display text-[11px] font-bold tracking-[-0.03em] text-white">
+            ID
+          </span>
           {site.name}
         </a>
 
