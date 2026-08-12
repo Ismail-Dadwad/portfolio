@@ -1,49 +1,66 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import type { Metadata } from "next";
+import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import React from "react";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
+const display = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const body = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const SITE = "https://ismaildadwad.infogeni.com";
 
 export const metadata: Metadata = {
-  title: "Portfolio | UI/UX & Frontend Developer",
-  description: "Crafting seamless user experiences from pixel-perfect design to clean, scalable code.",
-  icons: {
-    icon: [
-      {
-        url: "/favicon-v1.png",
-        type: "image/png",
-      },
-    ],
+  metadataBase: new URL(SITE),
+  title: "Ismail Dadwad — UI/UX Designer & Frontend Developer",
+  description:
+    "8+ years designing and building travel and SaaS interfaces. Figma to production code — booking engines, quotation CRMs and dashboards.",
+  keywords: [
+    "UI/UX Designer",
+    "Frontend Developer",
+    "UI Developer",
+    "Figma",
+    "Design Systems",
+    "JavaScript",
+    "Next.js",
+    "Belagavi",
+    "Bangalore",
+  ],
+  openGraph: {
+    title: "Ismail Dadwad — UI/UX Designer & Frontend Developer",
+    description:
+      "8+ years designing and building travel and SaaS interfaces. Figma to production code.",
+    url: SITE,
+    siteName: "Ismail Dadwad",
+    type: "website",
   },
+  robots: { index: true, follow: true },
 };
 
-
-// 🔴 ADDED: This forces mobile browsers to strictly obey the screen width
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body
-        suppressHydrationWarning
-        className={`${inter.variable} ${jakarta.variable} font-sans bg-[#0B0F19] text-slate-300 antialiased selection:bg-[#00B4D8] selection:text-white overflow-x-hidden w-full`}
-      >
-        <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00B4D8] opacity-[0.03] blur-[120px] rounded-full"></div>
-          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#7C3AED] opacity-[0.03] blur-[120px] rounded-full"></div>
-        </div>
-        
-        <main className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-24 overflow-hidden">
-          {children}
-        </main>
-      </body>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }

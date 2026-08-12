@@ -1,26 +1,85 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-ink font-body antialiased overflow-x-hidden;
+  }
+  ::selection {
+    @apply bg-brand text-bg;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-bg rounded;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-6 relative z-[2];
+  }
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-[0.16em];
+  }
+  .grad-text {
+    @apply bg-brandGrad bg-clip-text text-transparent;
+  }
+  .tile {
+    @apply rounded-[18px] border border-line bg-white/[0.035] p-6
+           backdrop-blur-md transition-all duration-300
+           hover:-translate-y-[3px] hover:border-lineHi hover:bg-white/[0.06];
+  }
+  .chip {
+    @apply font-mono text-[10px] uppercase tracking-[0.14em] whitespace-nowrap
+           rounded-full border border-lineHi px-[11px] py-1.5 text-muted;
+  }
+}
+
+/* Scroll reveal — the .in class is added by the Reveal client component */
+.rv {
+  opacity: 0;
+  transform: translateY(26px);
+}
+.rv.in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 0.8, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 0.8, 0.3, 1);
+}
+
+/* Cursor-tracking glow inside project cards */
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.45s;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(79, 124, 255, 0.16),
+    transparent 60%
+  );
+}
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-marquee,
+  .animate-ping2 {
+    animation: none !important;
+  }
 }
