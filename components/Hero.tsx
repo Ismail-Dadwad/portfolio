@@ -1,5 +1,6 @@
 import { Palette, Layers, Code2, Workflow } from "lucide-react";
 import { site, stats, marquee } from "@/data/site";
+import AnimatedStat from "./AnimatedStat";
 
 const skills = [
   { label: "UI/UX Design", icon: Palette },
@@ -68,7 +69,7 @@ export default function Hero() {
                     stat.gradient ? "grad-text" : ""
                   }`}
                 >
-                  {stat.value}
+                  <AnimatedStat value={stat.value} />
                 </b>
                 <span className="label mt-2.5 block text-faint">{stat.label}</span>
               </div>

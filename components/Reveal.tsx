@@ -11,9 +11,12 @@ import { useEffect, useRef } from "react";
 export default function Reveal({
   children,
   className = "",
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
+  /** Stagger the fade-in, in milliseconds. */
+  delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -44,7 +47,11 @@ export default function Reveal({
   }, []);
 
   return (
-    <div ref={ref} className={`rv ${className}`}>
+    <div
+      ref={ref}
+      className={`rv ${className}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+    >
       {children}
     </div>
   );

@@ -10,13 +10,11 @@ import Reveal from "@/components/Reveal";
 import { projects } from "@/data/projects";
 
 function getProject(slug: string) {
-  return projects.find((p) => p.id === slug && p.detail.fullCaseStudy);
+  return projects.find((p) => p.id === slug);
 }
 
 export function generateStaticParams() {
-  return projects
-    .filter((p) => p.detail.fullCaseStudy)
-    .map((p) => ({ slug: p.id }));
+  return projects.map((p) => ({ slug: p.id }));
 }
 
 export async function generateMetadata({
@@ -66,10 +64,14 @@ export default async function CaseStudyPage({
             </Reveal>
 
             <Reveal>
-              <CaseStudyTabs
-                quick={<CaseStudySection project={project} headingLevel="h1" />}
-                full={<FullCaseStudy project={project} />}
-              />
+              {project.detail.fullCaseStudy ? (
+                <CaseStudyTabs
+                  quick={<CaseStudySection project={project} headingLevel="h1" />}
+                  full={<FullCaseStudy project={project} />}
+                />
+              ) : (
+                <CaseStudySection project={project} headingLevel="h1" />
+              )}
             </Reveal>
 
             <Reveal className="mt-14">

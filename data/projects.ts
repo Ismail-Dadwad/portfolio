@@ -19,7 +19,6 @@ export type Project = {
   summary: string;
   stack: string[];
   metric?: { value: string; caption: string };
-  featured?: boolean;
   detail: {
     caseLabel: string;
     heading: string;
@@ -48,7 +47,6 @@ export const projects: Project[] = [
       "A reporting dashboard agents glanced at and left — rebuilt into an action surface with global search, a live activity feed and quick-filter tables. Shipped inside the existing stack, no rewrite.",
     stack: ["Figma", "Design system", "JavaScript ES6+", "SCSS", "Bootstrap 5", "GSAP"],
     metric: { value: "+25%", caption: "User engagement after rollout" },
-    featured: true,
     detail: {
       caseLabel: "Case 01",
       heading: "Quote Desks CRM — dashboard redesign",
@@ -120,37 +118,6 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "pace",
-    title: "Pace Travels Platform",
-    role: "Frontend lead",
-    status: "shipped",
-    statusLabel: "Shipped · Frontend lead",
-    sideLabel: "B2B + B2C",
-    summary:
-      "Booking engine across flights, hotels, buses and cabs for 1,000+ daily users. Shared component library, sticky fare summary, and performance work on results pages.",
-    stack: ["JavaScript ES6+", "Bootstrap", "jQuery", "REST APIs"],
-    metric: { value: "−35%", caption: "Booking friction" },
-    detail: {
-      caseLabel: "Case 02",
-      heading: "Pace Travels — B2B + B2C booking platform",
-      blocks: [
-        {
-          label: "The problem",
-          text: "Four booking products, each with its own flow and its own drop-off point. Users abandoned most often at the moment price became uncertain.",
-        },
-        {
-          label: "What I did",
-          text: "Built a shared component library so search, results and checkout matched across all four. Added a sticky fare summary keeping the total visible while options change, and cut visible steps at checkout.",
-        },
-        {
-          label: "Performance",
-          text: "Lazy loading, image optimisation and code splitting on results pages — the heaviest payload and the likeliest exit point. REST integration across booking, itinerary and enquiry flows.",
-        },
-      ],
-      result: { value: "−35%", caption: "booking friction, from checkout redesign and frontend performance" },
-    },
-  },
-  {
     id: "dubai",
     title: "Dubai Agency CRM",
     role: "Frontend build",
@@ -160,8 +127,9 @@ export const projects: Project[] = [
     summary:
       "Modular Trip Builder Hub for assembling multi-day itineraries, with a client-side margin calculator so pricing updates the moment a component changes.",
     stack: ["Laravel views", "JavaScript", "Bootstrap", "SCSS"],
+    metric: { value: "100%", caption: "Enquiries get automated follow-up" },
     detail: {
-      caseLabel: "Case 03",
+      caseLabel: "Case 02",
       heading: "Dubai Agency CRM — quotations & itineraries",
       blocks: [
         {
@@ -177,6 +145,36 @@ export const projects: Project[] = [
           text: "Frontend built into a Laravel application — Blade views with HTML5, CSS3, JavaScript and Bootstrap. No SPA framework; interactivity is vanilla JS on server-rendered pages.",
         },
       ],
+      fullCaseStudy: {
+        intro:
+          "Agents were rebuilding the same multi-day quotation from scratch every time a client's plans shifted, and margins lived off-screen, not on the quotation itself. This is the story of turning that into a modular hub that reprices as fast as an agent can click.",
+        personas: [
+          {
+            role: "The Travel Agent",
+            goal: "Assemble an accurate multi-day quotation quickly and answer a client's pricing question on the spot.",
+            painPoint:
+              "Rebuilt the same quotation by hand for every itinerary change, with margins worked out off-screen — a pricing question could take hours to answer.",
+          },
+        ],
+        sections: [
+          {
+            heading: "Discovery",
+            text: "Agents were assembling multi-day trips manually, and every time a client changed a day or swapped a service, the quotation got rebuilt close to from scratch. Margins weren't visible anywhere in the tool — they were worked out separately, off-screen, which meant a client's simple pricing question could take hours to turn around.",
+          },
+          {
+            heading: "Architecture",
+            text: "The Trip Builder Hub is modular: days and services compose into a quotation as building blocks, so changing one day doesn't mean rebuilding the rest. A client-side margin calculator sits alongside it, repricing instantly as components change instead of requiring a separate calculation step. Automated follow-up scheduling runs on every enquiry, so nothing waits on someone remembering to check back in.",
+          },
+          {
+            heading: "Constraints",
+            text: "This shipped inside an existing Laravel application — Blade views with HTML5, CSS3 and vanilla JavaScript, no SPA framework. Interactivity had to work on server-rendered pages within that stack, not around it.",
+          },
+          {
+            heading: "Outcome",
+            text: "Every enquiry now gets automated follow-up scheduling with no manual step, and margin questions that used to take hours to work through off-screen now reprice instantly as the quotation is built.",
+          },
+        ],
+      },
     },
   },
   {
@@ -184,13 +182,14 @@ export const projects: Project[] = [
     title: "Pace Travels v3",
     role: "UI/UX design only",
     status: "design",
-    statusLabel: "Design only — built by others",
+    statusLabel: "Design only · UI Design",
     sideLabel: "Figma",
     summary:
       "Full product redesign in Figma — every screen plus the design system, tokens and component variants. Implemented by the in-house Angular team; the code is theirs.",
     stack: ["Figma", "Design system", "Dev Mode handoff"],
+    metric: { value: "100%", caption: "Of screens redesigned" },
     detail: {
-      caseLabel: "Case 04 · Design only",
+      caseLabel: "Case 03 · Design only",
       heading: "Pace Travels v3 — product redesign & design system",
       gallery: [
         {
@@ -274,8 +273,9 @@ export const projects: Project[] = [
     summary:
       "A web presence platform for local businesses. Name, brand, UI design and frontend build — all mine. Live on Vercel, and how I'm learning Next.js on real problems.",
     stack: ["Next.js", "TypeScript", "Figma", "Vercel"],
+    metric: { value: "120+", caption: "Businesses live on Infogeni" },
     detail: {
-      caseLabel: "Case 05 · Own product",
+      caseLabel: "Case 04 · Own product",
       heading: "Infogeni — web presence platform for local businesses",
       gallery: [
         {
@@ -298,6 +298,46 @@ export const projects: Project[] = [
           text: "It's how I'm learning Next.js, TypeScript and the App Router on real problems instead of tutorials. Live and working, still being built out. Happy to walk through the code.",
         },
       ],
+      fullCaseStudy: {
+        intro:
+          "Most small businesses I looked at had a WhatsApp number and not much else — no page to point people to, no single link that says who they are. Infogeni is the name, brand, design and build for a profile page they can actually set up themselves, in an afternoon.",
+        personas: [
+          {
+            role: "The Local Business Owner",
+            goal: "Get a professional, shareable online presence without hiring a developer or an agency.",
+            painPoint:
+              "Only had a WhatsApp number and scattered social posts to point customers to — no dedicated page, shareable link or QR code for a shopfront or business card.",
+          },
+          {
+            role: "The Customer Searching Nearby",
+            goal: "Find and contact a local business quickly — by name, category or city — without digging through social media.",
+            painPoint:
+              "No consistent place to search local businesses and get straight to a call or chat button.",
+          },
+        ],
+        sections: [
+          {
+            heading: "The idea",
+            text: "A profile page a small business can actually keep updated, set up in an afternoon rather than a quarter — for owners who can't justify hiring an agency just to get a proper page online.",
+          },
+          {
+            heading: "Brand & design",
+            text: "Name, brand identity and logo, then the full UI in Figma: a landing page that pitches the idea, and a business profile template with a shareable link, QR code, and one-tap Chat and Call buttons — designed to be legible at a glance for someone searching by business, category or city.",
+            image: {
+              src: "/work/infogeni-platform.png",
+              alt: "Infogeni landing page — business profile link, QR code and contact card",
+            },
+          },
+          {
+            heading: "Build",
+            text: "Frontend built in Next.js with TypeScript and the App Router — landing page and business profile pages, deployed to production on Vercel. It's the real problem set I'm learning the framework on, not a tutorial project.",
+          },
+          {
+            heading: "Outcome",
+            text: "120+ businesses live across 3 cities, with an average setup time under 2 hours from signup to a working, shareable profile.",
+          },
+        ],
+      },
     },
   },
 ];

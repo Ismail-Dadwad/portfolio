@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Loader from "@/components/Loader";
 import "./globals.css";
 
 const display = Space_Grotesk({
@@ -62,6 +63,7 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <body>
+        <Loader />
         {children}
         <Analytics />
       </body>

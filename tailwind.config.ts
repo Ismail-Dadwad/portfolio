@@ -38,10 +38,20 @@ const config: Config = {
           "70%": { boxShadow: "0 0 0 9px rgba(61,220,164,0)" },
           "100%": { boxShadow: "0 0 0 0 rgba(61,220,164,0)" },
         },
+        loaderSweep: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(250%)" },
+        },
+        loaderIn: {
+          from: { opacity: "0", transform: "scale(0.9)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
       },
       animation: {
         marquee: "marquee 34s linear infinite",
         ping2: "ping2 2.4s infinite",
+        loaderSweep: "loaderSweep 1.1s cubic-bezier(0.4,0,0.2,1) infinite",
+        loaderIn: "loaderIn 0.5s cubic-bezier(0.16,0.8,0.3,1) both",
       },
     },
   },

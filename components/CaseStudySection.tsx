@@ -10,11 +10,9 @@ import CaseGallery from "./CaseGallery";
 export default function CaseStudySection({
   project,
   headingLevel = "h3",
-  readMoreHref,
 }: {
   project: Project;
   headingLevel?: "h1" | "h3";
-  readMoreHref?: string;
 }) {
   const { detail } = project;
   const Heading = headingLevel;
@@ -29,6 +27,29 @@ export default function CaseStudySection({
       </Heading>
 
       <CaseGallery images={detail.gallery ?? []} title={project.title} />
+
+      {detail.fullCaseStudy && (
+        <div className="mt-6">
+          <span className="label mb-3 block text-faint">Who it's for</span>
+          <div className="grid gap-3.5 sm:grid-cols-2">
+            {detail.fullCaseStudy.personas.map((persona) => (
+              <div key={persona.role} className="tile">
+                <b className="block font-display text-lg font-semibold tracking-[-0.02em] text-ink">
+                  {persona.role}
+                </b>
+                <p className="mt-2.5 text-[14.5px] text-muted">
+                  <span className="text-brand">Goal — </span>
+                  {persona.goal}
+                </p>
+                <p className="mt-1.5 text-[14.5px] text-muted">
+                  <span className="text-brand">Pain point — </span>
+                  {persona.painPoint}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="mt-5 grid gap-5 md:grid-cols-3">
         {detail.blocks.map((block) => (
@@ -49,24 +70,6 @@ export default function CaseStudySection({
           </b>
           <span className="font-semibold opacity-80">{detail.result.caption}</span>
         </div>
-      )}
-
-      {readMoreHref && (
-        <a
-          href={readMoreHref}
-          className="mt-5 inline-flex items-center gap-2 rounded-full bg-brandGrad px-5 py-2.5 text-sm font-semibold text-[#080A12] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(139,123,255,0.35)]"
-        >
-          Read the full case study
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M5 12h14M13 6l6 6-6 6"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
       )}
     </>
   );

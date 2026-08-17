@@ -1,6 +1,5 @@
 import { projects } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
-import CaseStudySection from "./CaseStudySection";
 import Reveal from "./Reveal";
 
 /** Server Component — renders Client Components (ProjectCard) as children. */
@@ -13,7 +12,7 @@ export default function Work() {
             Selected work
           </span>
           <h2 className="font-display text-[clamp(30px,4.4vw,52px)] font-bold leading-[1.04] tracking-[-0.04em]">
-            Five products.
+            Four products.
             <br />
             One thread — hard workflows,
             <br />
@@ -25,29 +24,13 @@ export default function Work() {
           </p>
         </Reveal>
 
-        <Reveal className="mt-11">
-          <div className="grid grid-cols-6 gap-3.5">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </Reveal>
-
-        {projects.map((project) => (
-          <Reveal key={project.id}>
-            <article
-              id={project.id}
-              className="mt-[90px] scroll-mt-28 border-t border-line pt-11"
-            >
-              <CaseStudySection
-                project={project}
-                readMoreHref={
-                  project.detail.fullCaseStudy ? `/work/${project.id}` : undefined
-                }
-              />
-            </article>
-          </Reveal>
-        ))}
+        <div className="mt-11 grid grid-cols-6 gap-3.5">
+          {projects.map((project, i) => (
+            <Reveal key={project.id} className="col-span-6" delay={i * 90}>
+              <ProjectCard project={project} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

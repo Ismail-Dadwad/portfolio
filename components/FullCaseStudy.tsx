@@ -18,25 +18,6 @@ export default function FullCaseStudy({ project }: { project: Project }) {
       </span>
       <p className="max-w-[70ch] text-lg text-muted">{fullCaseStudy.intro}</p>
 
-      <span className="label mb-4 mt-11 block text-faint">Who it's for</span>
-      <div className="grid gap-3.5 sm:grid-cols-2">
-        {fullCaseStudy.personas.map((persona) => (
-          <div key={persona.role} className="tile">
-            <b className="block font-display text-lg font-semibold tracking-[-0.02em] text-ink">
-              {persona.role}
-            </b>
-            <p className="mt-2.5 text-[14.5px] text-muted">
-              <span className="text-brand">Goal — </span>
-              {persona.goal}
-            </p>
-            <p className="mt-1.5 text-[14.5px] text-muted">
-              <span className="text-brand">Pain point — </span>
-              {persona.painPoint}
-            </p>
-          </div>
-        ))}
-      </div>
-
       <div className="mt-11 flex flex-col gap-11">
         {fullCaseStudy.sections.map((section) => (
           <div
