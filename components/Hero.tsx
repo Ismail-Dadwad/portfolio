@@ -1,4 +1,12 @@
+import { Palette, Layers, Code2, Workflow } from "lucide-react";
 import { site, stats, marquee } from "@/data/site";
+
+const skills = [
+  { label: "UI/UX Design", icon: Palette },
+  { label: "Design Systems", icon: Layers },
+  { label: "Frontend Development", icon: Code2 },
+  { label: "Figma → Code", icon: Workflow },
+];
 
 /** Server Component. */
 export default function Hero() {
@@ -11,23 +19,38 @@ export default function Hero() {
             {site.availability}
           </div>
 
-          <h1 className="max-w-[16ch] font-display text-[clamp(42px,8vw,94px)] font-bold leading-[0.98] tracking-[-0.045em]">
-            Design and build for{" "}
-            <span className="grad-text">travel &amp; SaaS</span> products.
+          <h1 className="font-display text-[clamp(40px,7vw,84px)] font-bold leading-[0.98] tracking-[-0.045em]">
+            {site.name}
           </h1>
-
-          <p className="mt-7 max-w-[58ch] text-[clamp(16.5px,1.9vw,19.5px)] text-muted">
-            Eight years turning complex booking, quotation and CRM workflows into
-            interfaces people use all day. Figma on one side, production frontend
-            on the other — same person, no handoff gap.
+          <p className="grad-text mt-2 font-display text-[clamp(20px,2.6vw,32px)] font-semibold tracking-[-0.02em]">
+            {site.title}
           </p>
+
+          <p className="mt-7 max-w-[58ch] text-[clamp(16.5px,1.9vw,19.5px)] font-semibold text-ink">
+            I design interfaces in Figma, then build them into production code
+            — no handoff gap.
+          </p>
+          <p className="mt-3 max-w-[58ch] text-[clamp(15px,1.7vw,17.5px)] text-muted">
+            8+ years on travel and SaaS platforms — booking engines, quotation
+            tools, agent CRMs — turning complex workflows into interfaces
+            people use all day.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {skills.map(({ label, icon: Icon }) => (
+              <span key={label} className="chip inline-flex items-center gap-1.5">
+                <Icon size={12} strokeWidth={2} />
+                {label}
+              </span>
+            ))}
+          </div>
 
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href="#work"
               className="rounded-full bg-ink px-[18px] py-2.5 text-sm font-semibold text-bg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(79,124,255,0.3)]"
             >
-              View selected work
+              View case studies
             </a>
             <a
               href={`mailto:${site.email}`}

@@ -27,6 +27,12 @@ export type Project = {
     result?: { value: string; caption: string };
     /** Screenshots shown in the case study, revealed on click. Omit if none yet. */
     gallery?: ProjectImage[];
+    /** Deep-dive content for the project's dedicated /work/[slug] page. Omit to skip that page. */
+    fullCaseStudy?: {
+      intro: string;
+      personas: { role: string; goal: string; painPoint: string }[];
+      sections: { heading: string; text: string; image?: ProjectImage }[];
+    };
   };
 };
 
@@ -73,6 +79,44 @@ export const projects: Project[] = [
         },
       ],
       result: { value: "+25%", caption: "engagement, measured on returning daily agents" },
+      fullCaseStudy: {
+        intro:
+          "The dashboard was the first screen every agent saw, every shift — and the one they trusted least. This is the full story of turning it from a reporting page into a screen worth opening.",
+        personas: [
+          {
+            role: "The Agent",
+            goal: "Close enquiries fast, without leaving the dashboard to find what needs attention.",
+            painPoint:
+              "Had to leave the landing screen and hunt through menus for anything that actually needed action — the dashboard itself did nothing.",
+          },
+        ],
+        sections: [
+          {
+            heading: "Discovery",
+            text: "Watching agents use the old dashboard, the pattern was consistent: log in, glance at the four static tiles, then leave through the sidebar to hunt for whatever enquiry actually needed attention. The numbers were accurate but inert — there was nothing on the landing screen you could click into and act on. It was a report, not a workspace.",
+            image: {
+              src: "/work/quotedesks-old.jpg",
+              alt: "Original Quote Desks dashboard — static reporting tiles only",
+            },
+          },
+          {
+            heading: "Architecture",
+            text: "The redesign started from the question \"what would an agent want to do right now?\" instead of \"what should we report?\". That reprioritised the layout: a global search across enquiries and quotes up top, a live activity feed showing what teammates just touched, and quick-filter tables that open a record in place rather than routing to another page. Status leads the visual hierarchy throughout, so anything overdue surfaces first. Built in Figma with a small component system, then structured into a SCSS component layer and vanilla JS modules that slot into the existing Bootstrap 5 app with no rewrite, with GSAP as the interaction layer handling the activity feed and table transitions.",
+          },
+          {
+            heading: "Constraints",
+            text: "This wasn't a rewrite. It had to ship inside the existing Bootstrap 5 and vanilla JavaScript stack the rest of the CRM runs on, with no backend changes and no framework migration — and it had to stay immediately learnable for agents who already used the old dashboard every day, since retraining time wasn't on the table.",
+          },
+          {
+            heading: "Outcome",
+            text: "Engagement on the dashboard rose 25%, measured by returning daily agents actually using the landing screen instead of routing straight past it into the menus — the clearest sign the redesigned screen earned a place in the daily workflow instead of being skipped.",
+            image: {
+              src: "/work/quotedesks-new.jpg",
+              alt: "Redesigned Quote Desks dashboard with global search and quick-filter tables",
+            },
+          },
+        ],
+      },
     },
   },
   {
@@ -174,6 +218,50 @@ export const projects: Project[] = [
           text: "Implemented by the in-house Angular team. I designed and specified it — the frontend code is theirs. It's here for the design work, not the build.",
         },
       ],
+      fullCaseStudy: {
+        intro:
+          "A full product redesign, done entirely in Figma with no build responsibility — this is the design side of the story: the scope, the system underneath it, and how it got handed off to a team I wasn't building alongside day to day.",
+        personas: [
+          {
+            role: "The Traveller",
+            goal: "Search and compare flights, hotels and packages quickly, then book with confidence.",
+            painPoint:
+              "The dated v2 layout buried the booking widget under a cluttered hero, with no clear path from landing to search.",
+          },
+          {
+            role: "The Ops / Admin user",
+            goal: "Manage bookings and content efficiently across agent and admin screens.",
+            painPoint:
+              "Inconsistent components across admin screens before the design system existed — every screen looked and behaved a little differently.",
+          },
+        ],
+        sections: [
+          {
+            heading: "Scope",
+            text: "V3 covered every screen across the platform's booking, agent and admin flows — not a visual refresh of the existing pages, but a full interface redesign built up from a shared system: variables, colour and spacing tokens, component variants and interaction states, so every screen was assembled from the same underlying parts rather than designed one-off.",
+            image: {
+              src: "/work/pacetravels-v3-old.png",
+              alt: "Original Pace Travels homepage — dated layout, cluttered hero",
+            },
+          },
+          {
+            heading: "Design system & architecture",
+            text: "For a design-only project, \"architecture\" means the system underneath the screens, not code: the bulk of the effort went into tokens for colour, spacing and type, component variants covering every state a booking flow actually hits (loading, error, empty, selected), and documented interaction behaviour so the pattern stayed consistent whether it showed up in the booking widget or an admin table.",
+          },
+          {
+            heading: "Handoff",
+            text: "Since engineering was a separate in-house Angular team, the work had to be legible without me in the room: everything went through Figma Dev Mode, with spacing scale, colour tokens, component props and responsive behaviour documented so implementation decisions didn't depend on a Slack thread.",
+          },
+          {
+            heading: "Outcome",
+            text: "V3 is live, built by the in-house Angular team directly from this design and system. It's included here for the design and systems-thinking work, not as a build credit — the frontend code is theirs.",
+            image: {
+              src: "/work/pacetravels-v3-new.png",
+              alt: "Redesigned Pace Travels homepage with clean booking widget and hero",
+            },
+          },
+        ],
+      },
     },
   },
   {
