@@ -29,7 +29,7 @@ const SITE = "https://ismaildadwad.infogeni.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
-  title: "Ismail Dadwad — Product Designer",
+  title: "Ismail Dadwad — UI/UX Designer & Developer",
   icons: {
     icon: "/favicon.svg",
   },
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "Bangalore",
   ],
   openGraph: {
-    title: "Ismail Dadwad — Product Designer",
+    title: "Ismail Dadwad — UI/UX Designer & Developer",
     description:
       "8+ years designing and building travel and SaaS interfaces. Figma to production code.",
     url: SITE,

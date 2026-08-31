@@ -2,6 +2,7 @@ import Ambient from "@/components/Ambient";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
+import Experience from "@/components/Experience";
 import Process from "@/components/Process";
 import Skills from "@/components/Skills";
 import About from "@/components/About";
@@ -21,6 +22,7 @@ export default function Home() {
       <main id="top">
         <Hero />
         <Work />
+        <Experience />
         <Process />
         <Skills />
         <About />

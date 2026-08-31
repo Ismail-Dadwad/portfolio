@@ -391,86 +391,138 @@ export const projects: Project[] = [
   {
     id: "v3",
     title: "Pace Travels v3",
-    role: "UI/UX design only",
-    status: "design",
-    statusLabel: "Design only · UI Design",
+    role: "UI/UX Designer",
+    status: "prelaunch",
+    statusLabel: "Design only · Pre-launch",
     sideLabel: "Figma",
-    tagline: "A full product redesign — every screen, one design system.",
+    tagline: "Redesigning Pace Travels for a clearer path from discovery to enquiry.",
     category: "Travel, Design",
     summary:
-      "Full product redesign in Figma — every screen plus the design system, tokens and component variants. Implemented by the in-house Angular team; the code is theirs.",
-    stack: ["Figma", "Design system", "Dev Mode handoff"],
+      "Pace Travels helps travellers explore destinations, discover packages and reach the team with an enquiry. I led the full UI/UX redesign — research, information architecture, wireframes, UI and the design system underneath it — to make that journey fast, trustworthy and easy to scan. Design complete, not yet launched.",
+    stack: ["Figma", "Design system", "Wireframing", "Prototyping"],
     metric: { value: "100%", caption: "Of screens redesigned" },
     detail: {
       caseLabel: "Case 04 · Design only",
-      heading: "Pace Travels v3 — product redesign & design system",
+      heading: "Pace Travels — creating a better digital travel experience",
+      meta: {
+        role: ["UI/UX Designer", "Information Architecture", "Wireframing", "Design System"],
+        tools: ["Figma", "UX Research", "Wireframing & Prototyping", "Design Systems"],
+        year: "2026",
+      },
+      overview:
+        "Pace Travels helps travellers explore destinations, discover packages and reach the team with an enquiry. Planning a trip means wading through a lot of information — destinations, packages, comparisons — so the challenge was presenting all of that clearly, while still answering three questions fast: where can I go, what are my options, and how do I get in touch. I led the redesign end to end — research, information architecture, wireframes, UI and the design system underneath it. Design complete, not yet launched.",
+      problemPoints: [
+        "Too much travel information to scan without feeling overwhelmed",
+        "No clear path from browsing a destination to making an enquiry",
+        "Inconsistent UI patterns across pages made the experience feel disjointed",
+      ],
       gallery: [
         {
           src: "/work/pacetravels-v3-old.png",
           alt: "Original Pace Travels homepage — dated layout, cluttered hero",
-          caption: "Before — the v2 homepage",
+          caption: "Before — the previous homepage",
         },
         {
           src: "/work/pacetravels-v3-new.png",
-          alt: "Redesigned Pace Travels homepage with clean booking widget and hero",
-          caption: "After — v3, built by the in-house Angular team from this design",
+          alt: "Redesigned Pace Travels homepage with a clear hero and structured destination content",
+          caption: "After — the v3 redesign (not yet launched)",
         },
       ],
       blocks: [
         {
-          label: "Scope",
-          text: "Designed the complete v3 interface in Figma: every screen across booking, agent and admin flows, plus the system underneath — variables, tokens, component variants, interaction states.",
+          label: "What I did",
+          text: "Led the UX process end to end — research and information architecture, wireframes for key flows, then the full UI redesign and the design system underneath it: navigation, cards, forms, destination and package layouts, and calls-to-action, so the pattern stayed consistent everywhere it appeared.",
         },
         {
-          label: "Handoff",
-          text: "Documented for engineering through Figma Dev Mode: spacing scale, colour tokens, component props and responsive behaviour, so the build never depended on me being in the room.",
-        },
-        {
-          label: "Who built it",
-          text: "Implemented by the in-house Angular team. I designed and specified it — the frontend code is theirs. It's here for the design work, not the build.",
+          label: "Constraints",
+          text: "Design only, not yet launched — the redesign had to be complete and system-driven enough to hand off cleanly whenever the build goes ahead, without me in the room.",
         },
       ],
       fullCaseStudy: {
         intro:
-          "A full product redesign, done entirely in Figma with no build responsibility — this is the design side of the story: the scope, the system underneath it, and how it got handed off to a team I wasn't building alongside day to day.",
+          "Planning a trip means wading through a lot of information — destinations, packages, comparisons — and the challenge was presenting all of it without overwhelming the user, while still answering three questions fast: where can I go, what's available, and how do I get in touch. This is the process behind redesigning Pace Travels around that journey, and the system built to keep it consistent.",
         personas: [
           {
             role: "The Traveller",
-            goal: "Search and compare flights, hotels and packages quickly, then book with confidence.",
+            goal: "Discover destinations and travel packages quickly, understand what's included, and reach the team the moment something looks right.",
             painPoint:
-              "The dated v2 layout buried the booking widget under a cluttered hero, with no clear path from landing to search.",
-          },
-          {
-            role: "The Ops / Admin user",
-            goal: "Manage bookings and content efficiently across agent and admin screens.",
-            painPoint:
-              "Inconsistent components across admin screens before the design system existed — every screen looked and behaved a little differently.",
+              "Too much information competing for attention, with no clear next step between browsing an option and actually enquiring about it.",
           },
         ],
         sections: [
           {
-            heading: "Scope",
-            text: "V3 covered every screen across the platform's booking, agent and admin flows — not a visual refresh of the existing pages, but a full interface redesign built up from a shared system: variables, colour and spacing tokens, component variants and interaction states, so every screen was assembled from the same underlying parts rather than designed one-off.",
+            heading: "Discovery",
+            text: "Planning a trip involves exploring destinations, comparing packages and understanding options — a lot of information for one experience to carry. The core challenge was presenting it without overwhelming the user, while still answering three questions fast: where can I go, what's available, and how do I get in touch. The primary users were people actively looking for travel services — discovering destinations, finding the right package quickly, understanding key details, reaching the team easily, and doing all of it comfortably on mobile.",
             image: {
               src: "/work/pacetravels-v3-old.png",
               alt: "Original Pace Travels homepage — dated layout, cluttered hero",
             },
           },
           {
-            heading: "Design system & architecture",
-            text: "For a design-only project, \"architecture\" means the system underneath the screens, not code: the bulk of the effort went into tokens for colour, spacing and type, component variants covering every state a booking flow actually hits (loading, error, empty, selected), and documented interaction behaviour so the pattern stayed consistent whether it showed up in the booking widget or an admin table.",
+            heading: "Design goals",
+            text: "Five goals shaped the work: improve discoverability of destinations and packages; create a clear information hierarchy users can scan at a glance; simplify the journey from discovery to enquiry; build trust through a professional, visually engaging interface; and make it work smoothly across desktop, tablet and mobile.",
           },
           {
-            heading: "Handoff",
-            text: "Since engineering was a separate in-house Angular team, the work had to be legible without me in the room: everything went through Figma Dev Mode, with spacing scale, colour tokens, component props and responsive behaviour documented so implementation decisions didn't depend on a Slack thread.",
+            heading: "User journey",
+            text: "I structured the experience around a simple journey — Discover → Explore → Evaluate → Enquire. Users arrive and immediately understand what Pace Travels offers, browse destinations and services, review the details that matter, then take action through clear enquiry and contact options. That journey shaped the information architecture and page structure that followed.",
+          },
+          {
+            heading: "Information architecture",
+            text: "Travel content is naturally dense, so organizing it came before any visual work. The experience was structured into clear sections — Home, Destinations, Travel Packages, Services, About, and Contact & Enquiry — so important information is easy to find without forcing users through unnecessary navigation.",
+          },
+          {
+            heading: "Wireframing",
+            text: "Before visual design, I worked through page structure and content hierarchy in wireframes — what users should see first, where calls-to-action belong, how travel packages should be displayed, and how someone moves naturally through the experience. That let the layout and journey get refined before high-fidelity design started.",
+          },
+          {
+            heading: "Visual design",
+            text: "The direction aimed for modern, trustworthy, inspiring and easy to explore. Travel is a highly visual category, so imagery carries a lot of the experience — guided by strong hero sections, destination imagery, clear typography, structured layouts, consistent spacing, travel cards and prominent calls-to-action.",
+          },
+          {
+            heading: "Key UX decisions",
+            text: "Important actions — Enquire Now, Contact Us, Call, WhatsApp — stayed visible throughout the journey instead of being buried in a menu. Dense travel content was broken into structured sections and cards instead of long blocks of text, so destinations, options and key information stay scannable. And a reusable component system — navigation, buttons, cards, forms, destination and package layouts, contact sections, CTAs and footer — kept the interface consistent as it grew.",
+          },
+          {
+            heading: "Responsive experience",
+            text: "The design had to hold up across screen sizes, with particular attention to mobile navigation, content hierarchy, card layouts, touch-friendly buttons, forms, image scaling and section spacing — so travel information stays comfortable to browse regardless of device.",
+          },
+          {
+            heading: "Challenges & solutions",
+            text: "Too much information: solved with a stronger information hierarchy and smaller, easier-to-scan sections. Users browsing but not knowing what to do next: solved with clear calls-to-action placed at the moments that matter. Consistency drifting across pages: solved with a component-based design system for buttons, cards, forms and sections shared across the whole product.",
           },
           {
             heading: "Outcome",
-            text: "V3 is live, built by the in-house Angular team directly from this design and system. It's included here for the design and systems-thinking work, not as a build credit — the frontend code is theirs.",
+            text: "The result is a more structured, user-focused experience — clearer navigation, better content organization, easier travel discovery, stronger visual hierarchy, a simplified enquiry journey, consistent UI patterns, and responsive usability throughout. Design complete; not yet launched.",
             image: {
               src: "/work/pacetravels-v3-new.png",
-              alt: "Redesigned Pace Travels homepage with clean booking widget and hero",
+              alt: "Redesigned Pace Travels homepage with a clear hero and structured destination content",
             },
+          },
+          {
+            heading: "Key takeaway",
+            text: "A good travel experience isn't just about beautiful destinations — it's about helping users move confidently from inspiration to action. For Pace Travels, that meant reducing complexity and building a clear path from discovering a trip to making an enquiry.",
+          },
+        ],
+        process: [
+          {
+            title: "Research",
+            text: "Understood who was planning a trip, what they needed to see first, and where they got stuck.",
+          },
+          {
+            title: "Define",
+            text: "Set five design goals and mapped the journey as Discover → Explore → Evaluate → Enquire.",
+          },
+          {
+            title: "Ideate",
+            text: "Structured the information architecture, then explored layout and hierarchy through wireframes.",
+          },
+          {
+            title: "Design",
+            text: "Designed the full UI and a reusable component system — navigation, cards, forms and CTAs — for a consistent, trustworthy feel.",
+          },
+          {
+            title: "Validate",
+            text: "Checked the design against real constraints — information overload, unclear next steps, drifting consistency — and refined it ahead of handoff.",
           },
         ],
       },
