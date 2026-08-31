@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { site } from "@/data/site";
 
 const MIN_VISIBLE_MS = 900;
 const FADE_MS = 500;
@@ -54,10 +55,10 @@ export default function Loader() {
         exiting ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
-      <div className="flex h-16 w-16 animate-loaderIn items-center justify-center rounded-[18px] bg-brandGrad font-display text-2xl font-bold tracking-[-0.03em] text-white">
-        ID
+      <div className="animate-loaderIn font-display text-2xl font-bold tracking-[-0.02em] text-ink">
+        {site.name}
       </div>
-      <div className="h-[3px] w-32 overflow-hidden rounded-full bg-white/10">
+      <div className="h-[3px] w-32 overflow-hidden rounded-full bg-ink/10">
         <div className="h-full w-1/3 rounded-full bg-brandGrad animate-loaderSweep" />
       </div>
     </div>

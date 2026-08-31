@@ -29,13 +29,13 @@
     @apply bg-brandGrad bg-clip-text text-transparent;
   }
   .tile {
-    @apply rounded-[18px] border border-line bg-white/[0.035] p-6
-           backdrop-blur-md transition-all duration-300
-           hover:-translate-y-[3px] hover:border-lineHi hover:bg-white/[0.06];
+    @apply rounded-[18px] border border-line bg-surface p-6
+           shadow-[0_1px_2px_rgba(20,22,28,0.04)] transition-all duration-300
+           hover:-translate-y-[3px] hover:border-lineHi hover:shadow-[0_12px_24px_rgba(20,22,28,0.06)];
   }
   .chip {
     @apply font-mono text-[10px] uppercase tracking-[0.14em] whitespace-nowrap
-           rounded-full border border-lineHi px-[11px] py-1.5 text-muted;
+           rounded-full border border-lineHi bg-surface px-[11px] py-1.5 text-muted;
   }
 }
 

@@ -33,12 +33,12 @@ export default function Ambient() {
 
   return (
     <>
-      <div className="pointer-events-none fixed -left-40 -top-56 z-0 h-[620px] w-[620px] rounded-full bg-[#2C56D6] opacity-30 blur-[120px]" />
-      <div className="pointer-events-none fixed -right-56 top-[38%] z-0 h-[560px] w-[560px] rounded-full bg-[#7B3FD6] opacity-20 blur-[120px]" />
-      <div className="pointer-events-none fixed -bottom-52 left-[20%] z-0 h-[480px] w-[480px] rounded-full bg-[#155E4B] opacity-[0.16] blur-[120px]" />
+      <div className="pointer-events-none fixed -left-40 -top-56 z-0 h-[620px] w-[620px] rounded-full bg-[#3B5BFF] opacity-[0.08] blur-[120px]" />
+      <div className="pointer-events-none fixed -right-56 top-[38%] z-0 h-[560px] w-[560px] rounded-full bg-[#0EA5A0] opacity-[0.07] blur-[120px]" />
+      <div className="pointer-events-none fixed -bottom-52 left-[20%] z-0 h-[480px] w-[480px] rounded-full bg-[#3B5BFF] opacity-[0.05] blur-[120px]" />
 
       <div
-        className="pointer-events-none fixed inset-0 z-[1] opacity-[0.16]"
+        className="pointer-events-none fixed inset-0 z-[1] opacity-[0.03]"
         style={{ backgroundImage: GRAIN }}
       />
 
@@ -47,7 +47,7 @@ export default function Ambient() {
         className="pointer-events-none fixed z-[1] h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 transition-opacity duration-500"
         style={{
           background:
-            "radial-gradient(circle, rgba(79,124,255,0.10) 0%, transparent 62%)",
+            "radial-gradient(circle, rgba(59,91,255,0.06) 0%, transparent 62%)",
         }}
       />
     </>

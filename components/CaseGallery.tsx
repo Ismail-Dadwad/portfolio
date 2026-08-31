@@ -34,26 +34,24 @@ export default function CaseGallery({
 
   return (
     <>
-      <div className="mt-6 flex flex-wrap gap-3">
+      <div className="mt-6 grid grid-cols-2 gap-3.5 sm:grid-cols-4">
         {images.map((image, i) => (
           <button
             key={image.src}
             type="button"
             onClick={() => setOpenIndex(i)}
-            className="group flex items-center gap-2.5 rounded-xl border border-line bg-white/[0.035] px-4 py-3 text-left transition-colors hover:border-lineHi hover:bg-white/[0.06]"
+            className="group text-left"
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              className="shrink-0 text-faint transition-colors group-hover:text-mint"
-            >
-              <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6" />
-              <circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" strokeWidth="1.6" />
-              <path d="M21 16l-5.5-5.5a1 1 0 0 0-1.4 0L4 20" stroke="currentColor" strokeWidth="1.6" />
-            </svg>
-            <span className="label text-faint group-hover:text-muted">
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-line bg-surface transition-colors group-hover:border-lineHi">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 640px) 45vw, 220px"
+                className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <span className="label mt-2 block text-faint group-hover:text-muted">
               {image.caption ?? `View screenshot ${i + 1}`}
             </span>
           </button>
@@ -70,7 +68,7 @@ export default function CaseGallery({
               type="button"
               aria-label="Close"
               onClick={() => setOpenIndex(null)}
-              className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white/[0.06] text-muted transition-colors hover:border-lineHi hover:text-white"
+              className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white/70 transition-colors hover:border-white/30 hover:text-white"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -81,7 +79,7 @@ export default function CaseGallery({
               className="relative w-full max-w-5xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-lineHi bg-surface">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/15 bg-black/30">
                 <Image
                   src={active.src}
                   alt={active.alt}
@@ -91,7 +89,7 @@ export default function CaseGallery({
                 />
               </div>
               {active.caption && (
-                <figcaption className="label mt-3 text-center text-faint">
+                <figcaption className="label mt-3 text-center text-white/50">
                   {title} — {active.caption}
                 </figcaption>
               )}

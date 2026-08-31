@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Manrope, Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Loader from "@/components/Loader";
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
 
-const body = Plus_Jakarta_Sans({
+const body = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
@@ -29,7 +29,10 @@ const SITE = "https://ismaildadwad.infogeni.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
-  title: "Ismail Dadwad — UI/UX Designer & Frontend Developer",
+  title: "Ismail Dadwad — Product Designer",
+  icons: {
+    icon: "/favicon.svg",
+  },
   description:
     "8+ years designing and building travel and SaaS interfaces. Figma to production code — booking engines, quotation CRMs and dashboards.",
   keywords: [
@@ -44,7 +47,7 @@ export const metadata: Metadata = {
     "Bangalore",
   ],
   openGraph: {
-    title: "Ismail Dadwad — UI/UX Designer & Frontend Developer",
+    title: "Ismail Dadwad — Product Designer",
     description:
       "8+ years designing and building travel and SaaS interfaces. Figma to production code.",
     url: SITE,

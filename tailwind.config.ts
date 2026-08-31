@@ -9,14 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#07080B",
-        surface: "#0C0E13",
-        ink: "#F2F4F8",
-        muted: "rgba(242,244,248,0.62)",
-        faint: "rgba(242,244,248,0.40)",
-        line: "rgba(255,255,255,0.09)",
-        lineHi: "rgba(255,255,255,0.18)",
-        brand: "#4F7CFF",
+        bg: "#F8F9FB",
+        surface: "#FFFFFF",
+        ink: "#14161C",
+        muted: "rgba(20,22,28,0.62)",
+        faint: "rgba(20,22,28,0.40)",
+        line: "rgba(20,22,28,0.09)",
+        lineHi: "rgba(20,22,28,0.16)",
+        brand: "#3B5BFF",
+        teal: "#0EA5A0",
         violet: "#B36BFF",
         mint: "#3DDCA4",
       },
@@ -27,7 +28,7 @@ const config: Config = {
       },
       backgroundImage: {
         brandGrad:
-          "linear-gradient(120deg,#4F7CFF 0%,#8B7BFF 45%,#B36BFF 100%)",
+          "linear-gradient(120deg,#3B5BFF 0%,#2BA9C9 50%,#0EA5A0 100%)",
       },
       keyframes: {
         marquee: {
@@ -35,8 +36,8 @@ const config: Config = {
           to: { transform: "translateX(-50%)" },
         },
         ping2: {
-          "70%": { boxShadow: "0 0 0 9px rgba(61,220,164,0)" },
-          "100%": { boxShadow: "0 0 0 0 rgba(61,220,164,0)" },
+          "70%": { boxShadow: "0 0 0 9px rgba(14,165,160,0)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(14,165,160,0)" },
         },
         loaderSweep: {
           "0%": { transform: "translateX(-100%)" },

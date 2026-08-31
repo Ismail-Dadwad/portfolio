@@ -1,4 +1,4 @@
-export type ProjectStatus = "shipped" | "design" | "own";
+export type ProjectStatus = "shipped" | "design" | "own" | "prelaunch";
 
 export type ProjectImage = {
   /** Path inside /public, e.g. "/work/quotedesks-dashboard.png" */
@@ -16,12 +16,26 @@ export type Project = {
   status: ProjectStatus;
   statusLabel: string;
   sideLabel: string;
+  /** Short one-line hook shown on the card grid. */
+  tagline: string;
+  /** Short domain/type tags shown on the card, e.g. "SaaS, CRM". */
+  category: string;
   summary: string;
   stack: string[];
   metric?: { value: string; caption: string };
+  /** True if this project's case study contains real business details and should sit behind the shared password gate. */
+  gated?: boolean;
   detail: {
     caseLabel: string;
     heading: string;
+    /** Design role, design tools/methods (not build tech), and year — shown in the case study header meta panel. */
+    meta?: { role: string[]; tools: string[]; year: string };
+    /** One paragraph introducing the product, shown above the Problem card. */
+    overview?: string;
+    /** Short, scannable problem points shown as mini tiles inside the Problem card. */
+    problemPoints?: string[];
+    /** Real tech used to build it — shown as an icon row, separate from the design-focused meta.tools. */
+    techInvolved?: string[];
     blocks: { label: string; text: string }[];
     result?: { value: string; caption: string };
     /** Screenshots shown in the case study, revealed on click. Omit if none yet. */
@@ -31,6 +45,16 @@ export type Project = {
       intro: string;
       personas: { role: string; goal: string; painPoint: string }[];
       sections: { heading: string; text: string; image?: ProjectImage }[];
+      /** Optional project-specific process steps, shown after the timeline. */
+      process?: { title: string; text: string }[];
+      /** Optional real design system — shown after the timeline. */
+      designSystem?: {
+        colorName: string;
+        colors: { label: string; hex: string }[];
+        font: string;
+        typeScale: number[];
+        spacingBase: number;
+      };
     };
   };
 };
@@ -38,80 +62,252 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "quotedesks",
-    title: "Quote Desks CRM",
-    role: "Design + frontend build",
-    status: "shipped",
-    statusLabel: "Shipped · Design + build",
-    sideLabel: "2024",
+    title: "QuoteDesks",
+    role: "Product Lead & UI/UX Design",
+    status: "prelaunch",
+    statusLabel: "Built · Pre-launch",
+    sideLabel: "2025",
+    tagline: "A new SaaS quoting platform for travel agents, built from the ground up.",
+    category: "SaaS, Travel Tech",
     summary:
-      "A reporting dashboard agents glanced at and left — rebuilt into an action surface with global search, a live activity feed and quick-filter tables. Shipped inside the existing stack, no rewrite.",
+      "Travel agents manage their own customer enquiries across WhatsApp, spreadsheets and email — losing context and follow-ups between tools. QuoteDesks is a new, standalone SaaS product I initiated and led, built for agents to run that entire workflow in one place.",
     stack: ["Figma", "Design system", "JavaScript ES6+", "SCSS", "Bootstrap 5", "GSAP"],
-    metric: { value: "+25%", caption: "User engagement after rollout" },
+    metric: { value: "2,500+", caption: "B2B agents in the target launch market" },
+    gated: true,
     detail: {
       caseLabel: "Case 01",
-      heading: "Quote Desks CRM — dashboard redesign",
-      gallery: [
-        {
-          src: "/work/quotedesks-old.jpg",
-          alt: "Original Quote Desks dashboard — static reporting tiles only",
-          caption: "Before — numbers to look at, nothing to act on",
-        },
-        {
-          src: "/work/quotedesks-new.jpg",
-          alt: "Redesigned Quote Desks dashboard with global search and quick-filter tables",
-          caption: "After — search, activity feed and filterable enquiry table",
-        },
+      heading: "QuoteDesks — a new quoting platform for travel agents",
+      meta: {
+        role: ["Product Lead", "UI/UX Design", "Competitor Research"],
+        tools: ["Figma", "UX Research", "Auto Layout", "Wireframing & Prototyping"],
+        year: "2025",
+      },
+      overview:
+        "QuoteDesks is a standalone SaaS product I started and led in 2025 — separate from Pace Tourism CRM (our in-house B2B tool). Where Pace Tourism CRM manages our own team's relationship with agents, QuoteDesks is for agents themselves, to manage their own customers: receiving enquiries, building quotations and following up, without switching between WhatsApp, spreadsheets and email. I drew directly on lessons from designing Pace Tourism CRM solo in 2020, researched competitors to find what they were getting wrong, and planned the feature set with one goal — save agents as much time per quotation as possible. A team then joined to build it out.",
+      problemPoints: [
+        "Customer context scattered across WhatsApp, spreadsheets and email",
+        "Follow-ups easy to miss once a quotation is sent",
+        "Competitor tools required training before an agent could generate a single quotation",
       ],
+      techInvolved: ["Figma", "JavaScript", "SCSS", "Bootstrap", "GSAP"],
       blocks: [
         {
-          label: "The problem",
-          text: "The dashboard reported numbers but couldn't be worked from. Agents logged in, glanced at totals, then left to hunt through menus for the enquiry they actually needed. The landing screen was a dead end.",
-        },
-        {
           label: "What I did",
-          text: "Rebuilt it as an action surface: global search across enquiries and quotes, a live activity feed, quick-filter tables that open records in place. Status leads the hierarchy, so what's overdue is visible first.",
+          text: "Led the project from the start: researched competitors hands-on, interviewed our own in-house Pace Tourism CRM team, and talked to real agents at the OTM travel trade exhibition. Planned the feature set and did the hands-on UI/UX design myself, then worked with a team to build it.",
         },
         {
           label: "Constraints",
-          text: "No backend rewrite, no framework migration — it had to ship inside the existing Bootstrap and vanilla JS stack, and stay learnable for agents already using it daily.",
+          text: "Not launched yet — built and validated ahead of a planned rollout to the 2,500 agents Pace Tourism already has business relationships with, so it had to be ready to sell into an existing audience, not a cold market.",
         },
       ],
-      result: { value: "+25%", caption: "engagement, measured on returning daily agents" },
+      result: { value: "2,500+", caption: "B2B agents Pace Tourism already works with — the target launch market" },
+      gallery: [
+        {
+          src: "/sketch/dash-enquiry-screen.jpg",
+          alt: "Rough sketch of the QuoteDesks dashboard and Generate Form accordion structure",
+          caption: "Dashboard and Generate Form — early structure sketch",
+        },
+        {
+          src: "/sketch/signup-flow.jpg",
+          alt: "Rough sketch of the QuoteDesks signup and onboarding flow",
+          caption: "Signup/onboarding — flow sketch",
+        },
+        {
+          src: "/sketch/signup-screen.jpg",
+          alt: "Rough wireframes of the Getting Started signup screens",
+          caption: "Getting Started — screen wireframes",
+        },
+        {
+          src: "/sketch/enquiry-flow.jpg",
+          alt: "Rough sketch of the Generate Enquiry form flow",
+          caption: "Generate Enquiry — flow sketch",
+        },
+      ],
       fullCaseStudy: {
         intro:
-          "The dashboard was the first screen every agent saw, every shift — and the one they trusted least. This is the full story of turning it from a reporting page into a screen worth opening.",
+          "Travel agents need a faster, more organized way to move an enquiry toward booking — but doing it across WhatsApp, spreadsheets, email and quotation documents makes it hard to keep customer context and follow up consistently. QuoteDesks is a new product built to fix that, and this is the research, the decisions and the real screens behind it.",
         personas: [
           {
-            role: "The Agent",
-            goal: "Close enquiries fast, without leaving the dashboard to find what needs attention.",
+            role: "The Travel Agent",
+            goal: "Move a customer from enquiry to booking quickly, without losing context or missing a follow-up.",
             painPoint:
-              "Had to leave the landing screen and hunt through menus for anything that actually needed action — the dashboard itself did nothing.",
+              "Managed enquiries across WhatsApp, spreadsheets and email — recreating customer context by hand at every step, with follow-ups easy to forget once a quotation was sent.",
+          },
+          {
+            role: "The Manager",
+            goal: "See which enquiries actually need attention, not just how many leads exist.",
+            painPoint:
+              "Total lead counts didn't say what mattered — which enquiries were overdue, which agents needed support, or where the pipeline was actually stuck.",
           },
         ],
         sections: [
           {
             heading: "Discovery",
-            text: "Watching agents use the old dashboard, the pattern was consistent: log in, glance at the four static tiles, then leave through the sidebar to hunt for whatever enquiry actually needed attention. The numbers were accurate but inert — there was nothing on the landing screen you could click into and act on. It was a report, not a workspace.",
-            image: {
-              src: "/work/quotedesks-old.jpg",
-              alt: "Original Quote Desks dashboard — static reporting tiles only",
-            },
+            text: "Three real sources, not one. I sat through competitor demo sessions myself to see how their products actually behaved. I interviewed our own in-house Pace Tourism CRM team — the 35-50 people across Dubai, Thailand and Vietnam who process agent enquiries daily — about what was slow and what needed fixing. And I talked directly to agents at the OTM travel trade exhibition, some already known to us, some brand new, who use other companies' software and told me firsthand what they were struggling with.",
+          },
+          {
+            heading: "Research findings",
+            text: "The clearest finding: in every competitor demo, nobody could generate a quotation without training first. One specific example stuck — adding an item that wasn't already in a competitor's master list took 5 to 8 clicks. I redesigned that flow down to 2 clicks in QuoteDesks. Beyond that: customer context scattered across tools, follow-ups missed after a quotation is sent, and a quotation acting as the customer's first real impression of the agency, not just paperwork.",
+          },
+          {
+            heading: "The insight",
+            text: "The reframe: agents don't need more tools, they need a connected workflow that keeps customer context, quotation creation and follow-up in one place. How might we help travel agents move from enquiry to booking with less manual work and fewer workflow interruptions? That question shaped every screen that followed.",
+          },
+          {
+            heading: "Design principles",
+            text: "Four principles carried the design: keep customer context visible throughout the workflow; automate the repetitive parts of quotations and follow-ups; make the next action obvious rather than making agents hunt for it; and design quotations as a sales experience, not just a document customers receive.",
           },
           {
             heading: "Architecture",
-            text: "The redesign started from the question \"what would an agent want to do right now?\" instead of \"what should we report?\". That reprioritised the layout: a global search across enquiries and quotes up top, a live activity feed showing what teammates just touched, and quick-filter tables that open a record in place rather than routing to another page. Status leads the visual hierarchy throughout, so anything overdue surfaces first. Built in Figma with a small component system, then structured into a SCSS component layer and vanilla JS modules that slot into the existing Bootstrap 5 app with no rewrite, with GSAP as the interaction layer handling the activity feed and table transitions.",
+            text: "The Generate Enquiry module — the core of the product — is structured in layers: Basic Details (guest info) leads into Package Configuration (currency, single vs. multi-country, cost type, package type), which opens Place & Hotel Details, where each place can carry its own hotels. Content sections (itinerary, sightseeing, transfers, inclusions, exclusions, terms, cancellation policy) and a live costing summary sit underneath, before a Review Details step and submission. Same layered logic on the dashboard: quick actions and stats up top, activity and upcoming work below.",
+            image: {
+              src: "/sketch/dash-enquiry-screen.jpg",
+              alt: "Rough sketch of the QuoteDesks dashboard and Generate Form accordion structure",
+              caption: "Early sketch — dashboard layout and the Generate Form's section structure",
+            },
           },
           {
-            heading: "Constraints",
-            text: "This wasn't a rewrite. It had to ship inside the existing Bootstrap 5 and vanilla JavaScript stack the rest of the CRM runs on, with no backend changes and no framework migration — and it had to stay immediately learnable for agents who already used the old dashboard every day, since retraining time wasn't on the table.",
+            heading: "Getting started",
+            text: "New agents land on the public site, start a 1-month free trial, and enter their email — new users go through business and contact details, then payment, then get a login link by email to set a password before reaching the dashboard; existing users go straight to login.",
+            image: {
+              src: "/sketch/signup-flow.jpg",
+              alt: "Rough sketch of the QuoteDesks signup and onboarding flow",
+              caption: "Early sketch — signup/onboarding flow, from trial to dashboard",
+            },
+          },
+          {
+            heading: "Creating a quotation",
+            text: "Once inside, an agent works through Guest Details, Package Configuration and Place Details — deciding single vs. multi-country, detailed vs. lumpsum costing, and full package vs. hotel/land/transfer only. Each place can carry one or more hotel options, then sightseeing, transfers, visa and optional add-ons attach underneath. Markup strategy and refundable vs. non-refundable rates get decided per hotel. The system totals everything automatically before a final Review Details check and submission.",
+            image: {
+              src: "/sketch/enquiry-flow.jpg",
+              alt: "Rough sketch of the Generate Enquiry form flow, from guest details to review and generate",
+              caption: "Early sketch — the Generate Enquiry form flow",
+            },
+          },
+          {
+            heading: "Build",
+            text: "The process on every complex screen: research and collect the real requirements, bring them to the team to discuss, then design in Figma. Once management signed off, I built some screens myself and pushed them to GitHub, briefing backend developers on the more complex form logic directly before they built against it — then QA tested before merge. Built in Figma with a small component system, structured into SCSS and vanilla JS modules on Bootstrap 5, with GSAP handling interaction — no framework rewrite, and it had to stay learnable without retraining.",
           },
           {
             heading: "Outcome",
-            text: "Engagement on the dashboard rose 25%, measured by returning daily agents actually using the landing screen instead of routing straight past it into the menus — the clearest sign the redesigned screen earned a place in the daily workflow instead of being skipped.",
+            text: "QuoteDesks is built and validated, not yet launched. The plan is to sell it into the 2,500 B2B agents Pace Tourism already has active relationships with — plus new agents met at OTM — rather than into a cold market, since that relationship and the pain points behind it are already real.",
+          },
+          {
+            heading: "Learnings",
+            text: "The biggest lesson came from the competitor demos, not a textbook: fewer clicks isn't a nice-to-have, it's the difference between an agent adopting a tool and giving up on it without training. The 5-to-8-click to 2-click change on adding master data was a small fix with an outsized effect, and it's the principle I now default to on every form — count the clicks before deciding the design is done.",
+          },
+        ],
+        process: [
+          {
+            title: "Research",
+            text: "Competitor demos, Pace Tourism CRM team interviews, and conversations with real agents at OTM.",
+          },
+          {
+            title: "Define",
+            text: "Turned the research into a single problem statement and a \"how might we\" that shaped every screen.",
+          },
+          {
+            title: "Ideate",
+            text: "Sketched the module architecture and the two core flows — signup and Generate Enquiry — before touching high-fidelity design.",
+          },
+          {
+            title: "Design",
+            text: "Hands-on UI/UX in Figma, built on an accessible color system, an 8px spacing grid and Inter for type.",
+          },
+          {
+            title: "Build & Validate",
+            text: "Briefed backend devs on complex form logic, reviewed builds against the Figma spec, and QA tested before merge.",
+          },
+        ],
+        designSystem: {
+          colorName: "Violet",
+          colors: [
+            { label: "Light", hex: "#F2EFFC" },
+            { label: "Normal", hex: "#795CD9" },
+            { label: "Dark", hex: "#5B44A0" },
+            { label: "Darker", hex: "#2A204D" },
+          ],
+          font: "Inter",
+          typeScale: [0.654, 0.808, 1.0, 1.237, 1.53, 1.893, 2.341, 2.896, 3.583],
+          spacingBase: 8,
+        },
+      },
+    },
+  },
+  {
+    id: "infogeni",
+    title: "Infogeni",
+    role: "Own product — design + build",
+    status: "own",
+    statusLabel: "Own product — in progress",
+    sideLabel: "Live",
+    tagline: "Building a digital presence platform for local businesses.",
+    category: "Web, SaaS",
+    summary:
+      "A web presence platform for local businesses. Name, brand, UI design and frontend build — all mine. Live on Vercel, and how I'm learning Next.js on real problems.",
+    stack: ["Next.js", "TypeScript", "Figma", "Vercel"],
+    metric: { value: "120+", caption: "Businesses live on Infogeni" },
+    detail: {
+      caseLabel: "Case 02 · Own product",
+      heading: "Infogeni — web presence platform for local businesses",
+      gallery: [
+        {
+          src: "/work/infogeni-platform.png",
+          alt: "Infogeni landing page — business profile link, QR code and contact card",
+          caption: "Landing page — the pitch and a live business profile preview",
+        },
+      ],
+      blocks: [
+        {
+          label: "The idea",
+          text: "A profile page a small business can actually keep updated — set up in an afternoon, not a quarter, for owners who can't justify an agency.",
+        },
+        {
+          label: "What I did",
+          text: "Everything: name, brand identity and logo, UI design in Figma, then the frontend — landing page and business profile pages — deployed to production on Vercel.",
+        },
+        {
+          label: "Why it's here",
+          text: "It's how I'm learning Next.js, TypeScript and the App Router on real problems instead of tutorials. Live and working, still being built out. Happy to walk through the code.",
+        },
+      ],
+      fullCaseStudy: {
+        intro:
+          "Most small businesses I looked at had a WhatsApp number and not much else — no page to point people to, no single link that says who they are. Infogeni is the name, brand, design and build for a profile page they can actually set up themselves, in an afternoon.",
+        personas: [
+          {
+            role: "The Local Business Owner",
+            goal: "Get a professional, shareable online presence without hiring a developer or an agency.",
+            painPoint:
+              "Only had a WhatsApp number and scattered social posts to point customers to — no dedicated page, shareable link or QR code for a shopfront or business card.",
+          },
+          {
+            role: "The Customer Searching Nearby",
+            goal: "Find and contact a local business quickly — by name, category or city — without digging through social media.",
+            painPoint:
+              "No consistent place to search local businesses and get straight to a call or chat button.",
+          },
+        ],
+        sections: [
+          {
+            heading: "The idea",
+            text: "A profile page a small business can actually keep updated, set up in an afternoon rather than a quarter — for owners who can't justify hiring an agency just to get a proper page online.",
+          },
+          {
+            heading: "Brand & design",
+            text: "Name, brand identity and logo, then the full UI in Figma: a landing page that pitches the idea, and a business profile template with a shareable link, QR code, and one-tap Chat and Call buttons — designed to be legible at a glance for someone searching by business, category or city.",
             image: {
-              src: "/work/quotedesks-new.jpg",
-              alt: "Redesigned Quote Desks dashboard with global search and quick-filter tables",
+              src: "/work/infogeni-platform.png",
+              alt: "Infogeni landing page — business profile link, QR code and contact card",
             },
+          },
+          {
+            heading: "Build",
+            text: "Frontend built in Next.js with TypeScript and the App Router — landing page and business profile pages, deployed to production on Vercel. It's the real problem set I'm learning the framework on, not a tutorial project.",
+          },
+          {
+            heading: "Outcome",
+            text: "120+ businesses live across 3 cities, with an average setup time under 2 hours from signup to a working, shareable profile.",
           },
         ],
       },
@@ -119,18 +315,33 @@ export const projects: Project[] = [
   },
   {
     id: "dubai",
-    title: "Dubai Agency CRM",
+    title: "Pace Tourism LLC CRM",
     role: "Frontend build",
     status: "shipped",
     statusLabel: "Shipped · Frontend build",
     sideLabel: "Internal",
+    tagline: "Streamlining multi-day itineraries with instant margin pricing.",
+    category: "Travel, CRM",
     summary:
       "Modular Trip Builder Hub for assembling multi-day itineraries, with a client-side margin calculator so pricing updates the moment a component changes.",
     stack: ["Laravel views", "JavaScript", "Bootstrap", "SCSS"],
     metric: { value: "100%", caption: "Enquiries get automated follow-up" },
+    gated: true,
     detail: {
-      caseLabel: "Case 02",
-      heading: "Dubai Agency CRM — quotations & itineraries",
+      caseLabel: "Case 03",
+      heading: "Pace Tourism LLC CRM — quotations & itineraries",
+      gallery: [
+        {
+          src: "/work/crm-old.png",
+          alt: "Original Pace Tourism LLC CRM — manual trip assembly, no visible margins",
+          caption: "Before — margins worked out off-screen, one quotation at a time",
+        },
+        {
+          src: "/work/crm-new.png",
+          alt: "Redesigned Pace Tourism LLC CRM with modular Trip Builder Hub and live margin calculator",
+          caption: "After — modular days and services, margins reprice instantly",
+        },
+      ],
       blocks: [
         {
           label: "The problem",
@@ -184,12 +395,14 @@ export const projects: Project[] = [
     status: "design",
     statusLabel: "Design only · UI Design",
     sideLabel: "Figma",
+    tagline: "A full product redesign — every screen, one design system.",
+    category: "Travel, Design",
     summary:
       "Full product redesign in Figma — every screen plus the design system, tokens and component variants. Implemented by the in-house Angular team; the code is theirs.",
     stack: ["Figma", "Design system", "Dev Mode handoff"],
     metric: { value: "100%", caption: "Of screens redesigned" },
     detail: {
-      caseLabel: "Case 03 · Design only",
+      caseLabel: "Case 04 · Design only",
       heading: "Pace Travels v3 — product redesign & design system",
       gallery: [
         {
@@ -258,83 +471,6 @@ export const projects: Project[] = [
               src: "/work/pacetravels-v3-new.png",
               alt: "Redesigned Pace Travels homepage with clean booking widget and hero",
             },
-          },
-        ],
-      },
-    },
-  },
-  {
-    id: "infogeni",
-    title: "Infogeni",
-    role: "Own product — design + build",
-    status: "own",
-    statusLabel: "Own product — in progress",
-    sideLabel: "Live",
-    summary:
-      "A web presence platform for local businesses. Name, brand, UI design and frontend build — all mine. Live on Vercel, and how I'm learning Next.js on real problems.",
-    stack: ["Next.js", "TypeScript", "Figma", "Vercel"],
-    metric: { value: "120+", caption: "Businesses live on Infogeni" },
-    detail: {
-      caseLabel: "Case 04 · Own product",
-      heading: "Infogeni — web presence platform for local businesses",
-      gallery: [
-        {
-          src: "/work/infogeni-platform.png",
-          alt: "Infogeni landing page — business profile link, QR code and contact card",
-          caption: "Landing page — the pitch and a live business profile preview",
-        },
-      ],
-      blocks: [
-        {
-          label: "The idea",
-          text: "A profile page a small business can actually keep updated — set up in an afternoon, not a quarter, for owners who can't justify an agency.",
-        },
-        {
-          label: "What I did",
-          text: "Everything: name, brand identity and logo, UI design in Figma, then the frontend — landing page and business profile pages — deployed to production on Vercel.",
-        },
-        {
-          label: "Why it's here",
-          text: "It's how I'm learning Next.js, TypeScript and the App Router on real problems instead of tutorials. Live and working, still being built out. Happy to walk through the code.",
-        },
-      ],
-      fullCaseStudy: {
-        intro:
-          "Most small businesses I looked at had a WhatsApp number and not much else — no page to point people to, no single link that says who they are. Infogeni is the name, brand, design and build for a profile page they can actually set up themselves, in an afternoon.",
-        personas: [
-          {
-            role: "The Local Business Owner",
-            goal: "Get a professional, shareable online presence without hiring a developer or an agency.",
-            painPoint:
-              "Only had a WhatsApp number and scattered social posts to point customers to — no dedicated page, shareable link or QR code for a shopfront or business card.",
-          },
-          {
-            role: "The Customer Searching Nearby",
-            goal: "Find and contact a local business quickly — by name, category or city — without digging through social media.",
-            painPoint:
-              "No consistent place to search local businesses and get straight to a call or chat button.",
-          },
-        ],
-        sections: [
-          {
-            heading: "The idea",
-            text: "A profile page a small business can actually keep updated, set up in an afternoon rather than a quarter — for owners who can't justify hiring an agency just to get a proper page online.",
-          },
-          {
-            heading: "Brand & design",
-            text: "Name, brand identity and logo, then the full UI in Figma: a landing page that pitches the idea, and a business profile template with a shareable link, QR code, and one-tap Chat and Call buttons — designed to be legible at a glance for someone searching by business, category or city.",
-            image: {
-              src: "/work/infogeni-platform.png",
-              alt: "Infogeni landing page — business profile link, QR code and contact card",
-            },
-          },
-          {
-            heading: "Build",
-            text: "Frontend built in Next.js with TypeScript and the App Router — landing page and business profile pages, deployed to production on Vercel. It's the real problem set I'm learning the framework on, not a tutorial project.",
-          },
-          {
-            heading: "Outcome",
-            text: "120+ businesses live across 3 cities, with an average setup time under 2 hours from signup to a working, shareable profile.",
           },
         ],
       },

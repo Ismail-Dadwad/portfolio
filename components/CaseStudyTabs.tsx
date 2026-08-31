@@ -27,7 +27,7 @@ export default function CaseStudyTabs({
 
   return (
     <>
-      <div className="mb-9 flex w-fit rounded-full border border-line bg-white/[0.035] p-1">
+      <div className="mb-9 flex w-fit rounded-full border border-line bg-surface p-1">
         {tabs.map((tab) => (
           <button
             key={tab.id}

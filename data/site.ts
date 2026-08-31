@@ -1,21 +1,21 @@
 export const site = {
   name: "Ismail Dadwad",
-  title: "UI/UX Designer & Frontend Developer",
+  title: "Product Designer",
   email: "ismaildadwad04@gmail.com",
   phone: "+91 88848 80114",
   phoneHref: "tel:+918884880114",
   linkedin: "https://www.linkedin.com/in/ismaildadwad",
   linkedinLabel: "linkedin.com/in/ismaildadwad",
   location: "Belagavi, Karnataka",
-  availability: "Available — Bangalore · Pune · Remote",
+  availability: "Available for opportunities — Remote/India",
   resume: "/Ismail_Dadwad_Resume.pdf",
 };
 
 export const stats = [
-  { value: "8+", label: "Years experience", gradient: false },
-  { value: "1,000+", label: "Daily users served", gradient: false },
-  { value: "−35%", label: "Booking friction", gradient: true },
-  { value: "+25%", label: "CRM engagement", gradient: true },
+  { value: "8+", label: "Years Experience" },
+  { value: "25+", label: "Projects Completed" },
+  { value: "15+", label: "Happy Clients" },
+  { value: "100%", label: "Commitment" },
 ];
 
 export const marquee = [
@@ -47,6 +47,19 @@ export const skillGroups = [
     ],
   },
   {
+    heading: "AI",
+    level: "Primary",
+    highlight: true,
+    spotlight: true,
+    items: [
+      "Prompt engineering — Claude, ChatGPT, Gemini",
+      "AI-assisted design exploration & iteration",
+      "AI-assisted frontend code generation & review",
+      "Research, competitor analysis & writing with AI",
+      "Rapid prototyping & wireframe generation",
+    ],
+  },
+  {
     heading: "Frontend",
     level: "Primary",
     highlight: true,
@@ -60,7 +73,7 @@ export const skillGroups = [
     ],
   },
   {
-    heading: "Graphic design",
+    heading: "Graphic Design",
     level: "Working knowledge",
     highlight: false,
     items: [
@@ -68,14 +81,30 @@ export const skillGroups = [
       "Adobe Photoshop",
       "CorelDRAW",
       "Brand identity & logo",
-      "Print & social collateral",
     ],
+    expandItems: ["Adobe Premiere Pro", "Canva Design"],
+  },
+  {
+    heading: "Social Media",
+    level: "Working knowledge",
+    highlight: false,
+    items: [
+      "Social media post & story templates",
+      "Content calendars & campaign visuals",
+      "Meta ads campaign",
+      "WhatsApp Marketing",
+    ],
+    expandItems: ["SEO", "Meta pixel"],
   },
 ];
 
-export const about = [
-  "I'm Ismail — a designer who codes, based in Belagavi, Karnataka.",
-  "I started as a UI developer converting mockups into pages, and kept moving upstream until I was designing the things I built. Most of that time has been travel: booking engines, DMC quotation tools, agent CRMs. It's a domain full of genuinely hard interface problems — pricing that changes while you look at it, itineraries that branch, agents who live in one screen for eight hours a day.",
-  "What I'm good at is the middle ground. I'll sit in a Figma file arguing about a spacing scale, then go build the thing and care just as much about how the CSS is structured. Teams that throw designs over a wall usually lose something in the gap. I'm most useful when there is no gap.",
-  "Open to UI/UX Developer, Frontend Developer and Design Engineer roles — Bangalore, Pune or remote.",
+export const about =
+  "Over the past 8+ years, I've worked on travel, SaaS and CRM platforms — booking engines, quotation tools, agent CRMs — turning genuinely hard interface problems into products people actually enjoy using. I care as much about how the CSS is structured as I do about the spacing scale, and I'm most useful when there's no gap between design and build.";
+
+export const whatIDo = [
+  "Product & UI/UX Design",
+  "Design Systems",
+  "Prototyping & User Flows",
+  "Frontend Development",
+  "Collaboration & Handoff",
 ];
