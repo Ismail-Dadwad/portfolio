@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Briefcase, Workflow, Blocks, Layers, User } from "lucide-react";
+import { Briefcase, Workflow, Layers, User } from "lucide-react";
 import { site } from "@/data/site";
 
 const links = [
   { href: "/#work", label: "Work", icon: Briefcase },
   { href: "/#process", label: "Process", icon: Workflow },
-  { href: "/#design-systems", label: "Design Systems", icon: Blocks },
   { href: "/#skills", label: "Stack", icon: Layers },
   { href: "/#about", label: "About", icon: User },
 ];
